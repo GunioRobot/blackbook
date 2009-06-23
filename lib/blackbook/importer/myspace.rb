@@ -22,26 +22,46 @@ class Blackbook::Importer::Myspace < Blackbook::Importer::PageScraper
   end 
 
   def scrape_contacts
+    contacts = []
     page = agent.get('http://messaging.myspace.com/index.cfm?fuseaction=adb')
-    contact_rows = page.search("input[@class='myContacts']/../..")
-    script = page.search("//scripts")[35]
-    start_index = page.body.index('hashJsonContacts.add') + 26
-    end_index   = page.body.index('MySpace.BeaconData') - 1
-    contacts = page.body[start_index..end_index].split(/\n/)
-    contacts.collect do |contact|
-      name = "" 
-      email = ""
-      contact_fields = contacts[0].gsub(/[\\\{\"\']/,'').split(',')
-      contact_fields.each do |c|
-        key,value = c.split(':')
-        if key and value
-          name << value if key == "FirstName"
-          name << " #{value}" if key == "LastName"
-          email = value if key == "Email"          
-        end       
+
+    total_email = page.search("//div[@class='pagingLeft']").inner_html.split().last.to_i
+    total_pages = total_email/15 
+    total_pages +=1 if (total_email%15 > 0)
+    current_page = 1
+
+    while(current_page <= total_pages)
+      start_index = page.body.index('hashJsonContacts.add') + 26
+      end_index   = page.body.index(');',start_index) - 1
+      while(start_index and end_index) do
+        name = "" 
+        email = ""
+        contact_fields = page.body.slice(start_index..end_index).gsub(/[\\\{\"\']/,'').split(',')
+        contact_fields.each do |c|
+          key,value = c.split(':')
+          if key and value
+            name << value if key == "FirstName"
+            name << " #{value}" if key == "LastName"
+            email = value if key == "Email"          
+          end       
+        end
+        contacts << {:email=>email,:name=>name}
+        start_index = page.body.index('hashJsonContacts.add',end_index) 
+        if start_index         
+          start_index += 26
+          end_index = page.body.index(');',start_index)
+        end 
       end
-      {:email=>email,:name=>name}
-    end.compact
+
+      # Change to next page
+      current_page += 1
+      if current_page <= total_pages
+        page.forms[1].__EVENTTARGET='ctl00$ctl00$ctl00$cpMain$cpMain$messagingMain$AddressBook$ucAddressBookView$pagerHeader'
+        page.forms[1].__EVENTARGUMENT= current_page
+        page = agent.submit(page.forms[1])
+      end
+    end # Iterate page
+    contacts.compact
   end
 
   # Register Myspace with blackbook
