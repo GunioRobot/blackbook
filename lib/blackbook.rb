@@ -2,6 +2,26 @@ $:.unshift File.expand_path(File.join(File.dirname(__FILE__)))
 require 'singleton'
 require 'rubygems'
 
+begin
+  unless Object.const_defined?("ActiveSupport") and ActiveSupport.const_defined?("JSON")
+    require 'json'
+    class Blackbook
+      def self.json_decode(str)
+        JSON.parse(str)
+      end
+    end
+  else
+    class Blackbook
+      def self.json_decode(str)
+        ActiveSupport::JSON.decode(str)
+      end
+    end
+  end
+rescue
+  require 'json'
+end
+
+
 class Blackbook
   include ::Singleton
   VERSION = '1.0.5'
