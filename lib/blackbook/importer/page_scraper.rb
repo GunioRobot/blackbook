@@ -48,7 +48,7 @@ class Blackbook::Importer::PageScraper < Blackbook::Importer::Base
   # user agent header for good net educate 
 
   def create_agent
-    self.agent = WWW::Mechanize.new
+    self.agent = Mechanize.new
     agent.user_agent = "Mozilla/4.0 (compatible; Blackbook #{Blackbook::VERSION})"
     agent.keep_alive = false
     agent
