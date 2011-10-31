@@ -12,7 +12,7 @@ class Blackbook::Importer::Yahoo < Blackbook::Importer::PageScraper
   def =~(options = {})
     options && options[:username] =~ /@yahoo.com$/i ? true : false
   end
-  
+
   ##
   # login for Yahoo!
 
@@ -22,12 +22,12 @@ class Blackbook::Importer::Yahoo < Blackbook::Importer::PageScraper
     form.login = options[:username].split("@").first
     form.passwd = options[:password]
     page = agent.submit(form, form.buttons.first)
-    
+
     # Check for login success
     raise( Blackbook::BadCredentialsError, "That username and password was not accepted. Please check them and try again." ) if page.body =~ /Invalid ID or password./
     true
   end
-  
+
   ##
   # prepare the importer
 
@@ -35,7 +35,7 @@ class Blackbook::Importer::Yahoo < Blackbook::Importer::PageScraper
     agent.user_agent = "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.3) Gecko/2008100716 Firefox/3.0.3"
     login
   end
-  
+
   ##
   # scrape yahoo contacts
 
@@ -46,17 +46,17 @@ class Blackbook::Importer::Yahoo < Blackbook::Importer::PageScraper
     end
     form = page.forms.last
     csv = agent.submit(form, form.buttons[2]) # third button is Yahoo-format CSV
-    
+
     contact_rows = FasterCSV.parse(csv.body)
     labels = contact_rows.shift # TODO: Actually use the labels to find the indexes of the data we want
     contact_rows.collect do |row|
       next if !row[7].empty? && options[:username] =~ /^#{row[7]}/ # Don't collect self
       {
-        :name  => "#{row[0]} #{row[2]}".to_s, 
-        :email => (row[4] || "#{row[7]}@yahoo.com") # email is a field in the data, but will be blank for Yahoo users so we create their email address    
-      } 
+        :name  => "#{row[0]} #{row[2]}".to_s,
+        :email => (row[4] || "#{row[7]}@yahoo.com") # email is a field in the data, but will be blank for Yahoo users so we create their email address
+      }
     end
   end
-  
+
   Blackbook.register(:yahoo, self)
 end

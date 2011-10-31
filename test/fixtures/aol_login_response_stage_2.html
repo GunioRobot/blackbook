@@ -11,7 +11,7 @@
         <link rel="stylesheet" type="text/css" media="screen" href="https://s.aolcdn.com/art/registration/snslanding_css.css"/>
         <script language="javascript" type="text/javascript" src="https://s.aolcdn.com/art/registration/snslanding_js.js"><!--....--></script>
         <link rel="stylesheet" type="text/css" media="screen" href="https://s.aolcdn.com/art/landing_pages/snslanding10_id1686.css"/>
-    
+
 <LINK href="https://sns-static.aolcdn.com/sns/3.5r2/style/snsMiniStyles.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 #sns_MainContentDiv, #sns_MainContentDiv #snsLoginRow,#sns_LoginTitleBar,.sns_noTabs, #sns_NewLoginModule, #sns_LoginContentDiv,.sns_LoginTabs .selected,#sns_LoginTitleBar { color: #000000;background-color: #FFFFFF; }
@@ -27,7 +27,7 @@
             <div class="lands">
                 <div id="othercontent">
                     <div class="aol_hatcontainer">
-                        <script type="text/javascript"> 
+                        <script type="text/javascript">
                                //Overwrite Hat 2.0 min-width
 								var _aol_hat_commonstyle_ = '#aol_hat2 {min-width:100% !important; _width:100% !important;}';
                                 var _sns_use_ssl_ = '1';
@@ -116,16 +116,16 @@ and address book from your old email account automatically.                     
 
 
 
- 
-  
-  
-  
-  
-  
-  
-  
-    	 
-    
+
+
+
+
+
+
+
+
+
+
 
 <SCRIPT LANGUAGE="JavaScript" SRC="https://sns-static.aolcdn.com/sns/3.5r2/js/mainValidations.js"></SCRIPT>
 
@@ -137,12 +137,11 @@ and address book from your old email account automatically.                     
 <div id="sns_miniUiWidget" >
 <div id="snsHelpBlk">
 	<span class="hdrText">Sign In</span>
-	
+
 		<a id="snsHelpLnk" href="javascript:snsInfoPopUp(1,'https://my.screenname.aol.com/_cqr/help/infoPopUp.jsp?help=1')" alt="Help" tabindex="5">Help</a>
-	
+
 </div>
 
- 
 
 
 
@@ -233,7 +232,8 @@ and address book from your old email account automatically.                     
 
 
 
-   
+
+
 <SCRIPT type="text/JavaScript" language="JavaScript">
 
 
@@ -242,28 +242,28 @@ and address book from your old email account automatically.                     
 function validateAolTab(loginForm){
 var pwderr = new Array(4);
 pwderr[RetVal.EMPTY_ERR]="You must enter a value for Password.";
-pwderr[RetVal.MIN_ERR]="Password you entered is too short."; 
+pwderr[RetVal.MIN_ERR]="Password you entered is too short.";
 pwderr[RetVal.MAX_ERR]="Password must not be longer than 16 characters.";
 pwderr[RetVal.INVALID_ERR]="Password you entered is invalid. A Valid password should contain 6-16 letters or numbers.";
 var result;
 var loginId = loginForm.loginId;
 stripOffAOLDomains(loginId);
-	if((/@/).test(loginId.value)) { 
+	if((/@/).test(loginId.value)) {
 	var err = new Array(4);
  	 err[RetVal.EMPTY_ERR]="You must enter a value for E-mail Address.";
-         err[RetVal.MIN_ERR]="E-mail Address you entered is too short."; 
+         err[RetVal.MIN_ERR]="E-mail Address you entered is too short.";
          err[RetVal.MAX_ERR]="E-mail Address must not be longer than 97 characters.";
          err[RetVal.INVALID_ERR]="E-mail Address you entered is invalid. A valid E-mail address should look like: joe@aol.com. Please be sure that the E-mail Address doesn't contain any spaces.";
         }
         else {
         var err = new Array(5);
          err[RetVal.EMPTY_ERR]="You must enter a value for Screen Name.";
-         err[RetVal.MIN_ERR]="ScreenName you entered is too short."; 
+         err[RetVal.MIN_ERR]="ScreenName you entered is too short.";
          err[RetVal.MAX_ERR]="ScreenName must not be longer than 16 characters.";
          err[RetVal.INVALID_ERR]="ScreenName you entered is invalid. A valid Screen Name consists of 3-16 characters and can contain letters, numbers, spaces, and must start with a letter (e.g., johndoe123). Please re-type your Screen Name.";
          err[RetVal.ICQ_INVALID_ERR]="The ICQ UIN you entered is invalid. A valid ICQ UIN consists of 5-10 digits. Please re-type your ICQ UIN.";
      }
-	
+
 result=snsCheckSignInForm(loginForm,err,pwderr);
 return result;
 }
@@ -272,26 +272,26 @@ return result;
 function validateIcqTab(loginForm){
 var pwderr = new Array(4);
 pwderr[RetVal.EMPTY_ERR]="You must enter a value for Password.";
-pwderr[RetVal.MIN_ERR]="Password you entered is too short."; 
+pwderr[RetVal.MIN_ERR]="Password you entered is too short.";
 pwderr[RetVal.MAX_ERR]="Password must not be longer than 16 characters.";
-pwderr[RetVal.INVALID_ERR]="Password you entered is invalid. A Valid password should contain 6-16 letters or numbers."; 
+pwderr[RetVal.INVALID_ERR]="Password you entered is invalid. A Valid password should contain 6-16 letters or numbers.";
 var result;
 var loginId = loginForm.loginId;
- if((/@/).test(loginId.value)) { 
+ if((/@/).test(loginId.value)) {
  var err = new Array(3);
   err[RetVal.EMPTY_ERR]="Please enter an ICQ UIN or ICQ email alias";
-  err[RetVal.MIN_ERR]="ICQ e-mail alias you entered is invalid. A valid E-mail address should look like:joe@aol.com."; 
+  err[RetVal.MIN_ERR]="ICQ e-mail alias you entered is invalid. A valid E-mail address should look like:joe@aol.com.";
   err[RetVal.MAX_ERR]="E-mail Address must not be longer than 97 characters.";
   err[RetVal.INVALID_ERR]="ICQ e-mail alias you entered is invalid. A valid E-mail address should look like:joe@aol.com.";
  }
  else {
  var err = new Array(4);
   err[RetVal.EMPTY_ERR]="Please enter an ICQ UIN or ICQ email alias";
-  err[RetVal.MIN_ERR]="An ICQ UIN is at least 5 numeric digits "; 
+  err[RetVal.MIN_ERR]="An ICQ UIN is at least 5 numeric digits ";
   err[RetVal.MAX_ERR]="ICQ UIN must not be more than 10 numeric digits";
   err[RetVal.INVALID_ERR]="The ICQ UIN you entered is invalid. A valid ICQ UIN consists of 5-10 digits. Please re-type your ICQ UIN.";
  }
-	
+
 result=checkIcqForm(loginForm,err,pwderr);
 return result;
 }
@@ -313,22 +313,18 @@ return result;
 
 
 
-	
+
 
 
 
 
 </SCRIPT>
 
- 
+
 <div id="SLT" class="snslogintypes snslogintypes_content">
 
-   
+
  	<div class="sns_noTabs"></div>
- 
-   
- 		
-       
 
 
 
@@ -382,13 +378,17 @@ return result;
 
 
 
-<div class="content" id="SLT.1"> 
-<div id="sns_LoginAol"> 
+
+
+
+
+<div class="content" id="SLT.1">
+<div id="sns_LoginAol">
 <form name="AOLLoginForm" method="POST" action="https://my.screenname.aol.com/_cqr/login/login.psp" onsubmit="return validateAolTab(this);">
         <input type="hidden" name="sitedomain" value="sns.webmail.aol.com">
         <input type="hidden" name="siteId" value="">
         <input type="hidden" name="lang" value="en">
-        <input type="hidden" name="locale" value="us">        
+        <input type="hidden" name="locale" value="us">
         <input type="hidden" name="authLev" value="2">
         <input type="hidden" name="siteState" value="ver%3A2%7Cac%3AWS%7Cat%3ASNS%7Cld%3Awebmail.aol.com%7Cuv%3AAOL%7Clc%3Aen-us">
         <input type="hidden" name="isSiteStateEncoded" value="true">
@@ -406,104 +406,104 @@ return result;
        	<input type="hidden" name="regPromoCode" value="">
        	<input type="hidden" name="idType" value="SN">
 
-        
+
         <input type="hidden" name="usrd" value="5688031">
-          
-               
-                  	
-         
-			
-	         
-			
-			
-	                  
-			
-			 		 
-	
-		 
-	   
-		<div id="snsmPswdRetry1"></div>   			
-	 
-		 
-		   	
-		       	
-            <label for="lgnId1" id="lgnId1lbl">Screen Name or E-mail:</label>             	
-                       
-           	
-            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div id="snsmPswdRetry1"></div>
+
+
+
+
+            <label for="lgnId1" id="lgnId1lbl">Screen Name or E-mail:</label>
+
+
+
                    <input type="text" name="loginId" maxlength="97" size="25" tabindex="1" value="" id="lgnId1" class="inputBox">
-             
-             
-             
-                  
-       				
-                    
-				    	<div id="snsmCreateAcctLnk"></div>             		 
-                                                
-			  	  
-			  	     			
+
+
+
+
+
+
+				    	<div id="snsmCreateAcctLnk"></div>
+
+
+
              <label for="pwdId" alt="enter AOL password" id="pwdId1lbl">Password:</label>
              <input type="password" name="password" maxlength="23" size="25" tabindex="2" value="" id="pwdId1" class="inputBox" alt="enter AOL password">
-           	 
+
            	 <a href="https://account.login.aol.com/opr/_cqr/opr/opr.psp?sitedomain=sns.webmail.aol.com&authLev=2&siteState=ver%3A2%7Cac%3AWS%7Cat%3ASNS%7Cld%3Awebmail.aol.com%7Cuv%3AAOL%7Clc%3Aen-us&lang=en&locale=us&seamless=novl" id="forgotpswdLnk" target="_top"  class="snsmTinyText"  tabindex="7" >Forgot Password</a>
-           	  
-           	  
-			 
+
+
+
 			 <div id="rmbrBlk">
-				<input type="hidden" name="rememberMe" value="off">	
-				</div>			
-						
-						
-             <div class="alignBtnRt" id="sbmtAol">                
+				<input type="hidden" name="rememberMe" value="off">
+				</div>
+
+
+             <div class="alignBtnRt" id="sbmtAol">
  	               <input type="submit"  id="submitAol" value="Sign In"  class="artzBtn def"   tabindex="3" alt="Sign In" title="Sign In" />
     		 </div>
-    		 
-    		 <div id="snsmBotLinks">    		  	
-    		  
-                
-                
-                	
-    			
-    		      			
-         	</div> 
-         	
-         	
+
+    		 <div id="snsmBotLinks">
+
+
+
+
+
+
+         	</div>
+
+
    </form>
    </div>
-   </div>  
+   </div>
 
-  
 
-       
-       
-       
-         
-        
-       
-     
-      
-   
+
+
+
+
+
+
+
+
+
+
 
      <div style="display:none;">none</div>
-     
+
      <script type="text/Javascript">
      _sns_p("SLT.1").style.display="block";
-     
-      
-	  
-	   if( document.getElementById("lgnId1")){document.getElementById("lgnId1").focus();}   	
-	  
-	  
-   
-   
-   
-     </script>   
-
-    </div> <!-- end SLT -->   
 
 
 
-  
+	   if( document.getElementById("lgnId1")){document.getElementById("lgnId1").focus();}
+
+
+
+
+
+     </script>
+
+    </div> <!-- end SLT -->
+
+
+
+
 
 </div>
 <script type="text/javascript">

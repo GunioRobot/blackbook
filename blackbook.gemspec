@@ -1,13 +1,13 @@
---- !ruby/object:Gem::Specification 
+--- !ruby/object:Gem::Specification
 name: blackbook
-version: !ruby/object:Gem::Version 
+version: !ruby/object:Gem::Version
   version: 1.0.5
 platform: ruby
-authors: 
+authors:
 - Contentfree
-autorequire: 
+autorequire:
 bindir: bin
-cert_chain: 
+cert_chain:
 - |
   -----BEGIN CERTIFICATE-----
   MIIDPDCCAiSgAwIBAgIBADANBgkqhkiG9w0BAQUFADBEMRYwFAYDVQQDDA1taWtl
@@ -31,49 +31,49 @@ cert_chain:
   -----END CERTIFICATE-----
 
 date: 2008-02-27 00:00:00 +01:00
-default_executable: 
-dependencies: 
-- !ruby/object:Gem::Dependency 
+default_executable:
+dependencies:
+- !ruby/object:Gem::Dependency
   name: mechanize
   type: :runtime
-  version_requirement: 
-  version_requirements: !ruby/object:Gem::Requirement 
-    requirements: 
+  version_requirement:
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
     - - ">="
-      - !ruby/object:Gem::Version 
+      - !ruby/object:Gem::Version
         version: 0.7.0
-    version: 
-- !ruby/object:Gem::Dependency 
+    version:
+- !ruby/object:Gem::Dependency
   name: fastercsv
   type: :runtime
-  version_requirement: 
-  version_requirements: !ruby/object:Gem::Requirement 
-    requirements: 
+  version_requirement:
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
     - - ">="
-      - !ruby/object:Gem::Version 
+      - !ruby/object:Gem::Version
         version: 1.2.0
-    version: 
-- !ruby/object:Gem::Dependency 
+    version:
+- !ruby/object:Gem::Dependency
   name: hoe
   type: :runtime
-  version_requirement: 
-  version_requirements: !ruby/object:Gem::Requirement 
-    requirements: 
+  version_requirement:
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
     - - ">="
-      - !ruby/object:Gem::Version 
+      - !ruby/object:Gem::Version
         version: 1.5.0
-    version: 
+    version:
 description: "== DESCRIPTION:  Blackbook automates the nitty-gritty of importing contacts from various services and files and exporting them as VCard, XML, or simple Hash. Utilize those contacts from services like AOL, GMail, Yahoo Mail, Hotmail or CSV to help your social networking site become GIGANTIC overnight! You'll be able to get big and sell for millions before anyone figures out it's just like every other social network."
 email: dave.myron@contentfree.com
 executables: []
 
 extensions: []
 
-extra_rdoc_files: 
+extra_rdoc_files:
 - CHANGES.markdown
 - Manifest.txt
 - README.markdown
-files: 
+files:
 - CHANGES.markdown
 - Manifest.txt
 - README.markdown
@@ -135,32 +135,32 @@ files:
 - vendor/plugins/blackbook/lib/autotest/discover.rb
 has_rdoc: true
 homepage: http://rubyforge.org/projects/contentfree/
-post_install_message: 
-rdoc_options: 
+post_install_message:
+rdoc_options:
 - --main
 - README.txt
-require_paths: 
+require_paths:
 - lib
-required_ruby_version: !ruby/object:Gem::Requirement 
-  requirements: 
+required_ruby_version: !ruby/object:Gem::Requirement
+  requirements:
   - - ">="
-    - !ruby/object:Gem::Version 
+    - !ruby/object:Gem::Version
       version: "0"
-  version: 
-required_rubygems_version: !ruby/object:Gem::Requirement 
-  requirements: 
+  version:
+required_rubygems_version: !ruby/object:Gem::Requirement
+  requirements:
   - - ">="
-    - !ruby/object:Gem::Version 
+    - !ruby/object:Gem::Version
       version: "0"
-  version: 
+  version:
 requirements: []
 
 rubyforge_project: contentfree
 rubygems_version: 1.3.1
-signing_key: 
+signing_key:
 specification_version: 2
 summary: Blackbook handles the nitty-gritty of importing contacts from various service providers and contact lists and exporting them in a useful format.
-test_files: 
+test_files:
 - test/test_blackbook_importer_aol.rb
 - test/test_blackbook_importer_csv.rb
 - test/test_blackbook_importer_gmail.rb

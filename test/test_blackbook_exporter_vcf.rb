@@ -9,7 +9,7 @@ class TestBlackbookExporterVcf < Test::Unit::TestCase
 
   def setup
     @card = Blackbook::Exporter::Vcf::Vcard.new(
-             {'first' => 'joe', 'last' => 'user', 
+             {'first' => 'joe', 'last' => 'user',
               'email' => 'joe.user@example.com'})
     @exporter = Blackbook::Exporter::Vcf.new
   end

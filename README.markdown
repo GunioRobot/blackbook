@@ -2,11 +2,11 @@ Blackbook
 http://github.com/purzelrakete/blackbook/tree/master
 
 == DESCRIPTION:
-  
+
 Blackbook automates the nitty-gritty of importing contacts from various services and files and exporting them as VCard, XML, or simple Hash. Utilize those contacts from services like AOL, GMail, Yahoo Mail, Hotmail or CSV to help your social networking site become GIGANTIC overnight! You'll be able to get big and sell for millions before anyone figures out it's just like every other social network.
 
 == FEATURES/PROBLEMS:
-  
+
 The current list of supported services and file types:
 
 Import:
@@ -21,7 +21,7 @@ Export:
 * Vcard
 * XML
 
-If you create an additional importer or exporter - or simply find a bug - please consider submitting it as a patch to the project so the community can all benefit from your hard work and ingenuity. 
+If you create an additional importer or exporter - or simply find a bug - please consider submitting it as a patch to the project so the community can all benefit from your hard work and ingenuity.
 
 == SYNOPSIS:
 
@@ -30,8 +30,8 @@ If you create an additional importer or exporter - or simply find a bug - please
 
 # or returning XML
   contacts = Blackbook.get :username => 'me@gmail.com', :password => 'whatever', :as => :xml
-  
-# or importing from a CSV file 
+
+# or importing from a CSV file
   contacts = Blackbook.get :csv, :file => #<File:/path/to/file.csv>
 
 == REQUIREMENTS:

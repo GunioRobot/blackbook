@@ -1,6 +1,6 @@
 require 'blackbook/importer/page_scraper'
 
-# Imports contacts from Myspace 
+# Imports contacts from Myspace
 
 class Blackbook::Importer::Myspace < Blackbook::Importer::PageScraper
 
@@ -11,15 +11,15 @@ class Blackbook::Importer::Myspace < Blackbook::Importer::PageScraper
     form['ctl00$ctl00$cpMain$cpMain$LoginBox$Password_Textbox'] = options[:password]
     page = agent.submit(form,form.buttons.first)
 
-    # Check if redirected to homepage 
+    # Check if redirected to homepage
     raise( Blackbook::BadCredentialsError, "That username and password was not accepted. Please check them and try again." ) if page.uri.to_s!='http://home.myspace.com/index.cfm?fuseaction=home'
   end
 
- 
+
   def prepare
     agent.user_agent = "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.3) Gecko/2008100716 Firefox/3.0.3"
     login
-  end 
+  end
 
   def scrape_contacts
     contacts = []
@@ -39,10 +39,10 @@ class Blackbook::Importer::Myspace < Blackbook::Importer::PageScraper
     json = Blackbook.json_decode(page.body)
 
     json["Data"]["items"].each do |c|
-      contacts << {:name => c['name']['contactFullName'], 
+      contacts << {:name => c['name']['contactFullName'],
                    :email => c['email']}
     end
- 
+
 #    contacts.compact
     contacts
   end

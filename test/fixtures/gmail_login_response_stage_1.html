@@ -147,24 +147,24 @@ function updateQuota() {
     }
   }
   if (i == 0) {
-    setTimeout(updateQuota, 1000); 
+    setTimeout(updateQuota, 1000);
   } else if (i == CP.length) {
     quota.innerHTML = CP[i - 1][1];
   } else {
     var ts = CP[i - 1][0];
     var bs = CP[i - 1][1];
-    quota.innerHTML = format(((now-ts) / (CP[i][0]-ts) * (CP[i][1]-bs)) + bs); 
-    setTimeout(updateQuota, 1000); 
-  } 
-} 
- 
-var PAD = '.000000'; 
- 
-function format(num) { 
-  var str = String(num); 
-  var dot = str.indexOf('.'); 
-  if (dot < 0) { 
-     return str + PAD; 
+    quota.innerHTML = format(((now-ts) / (CP[i][0]-ts) * (CP[i][1]-bs)) + bs);
+    setTimeout(updateQuota, 1000);
+  }
+}
+
+var PAD = '.000000';
+
+function format(num) {
+  var str = String(num);
+  var dot = str.indexOf('.');
+  if (dot < 0) {
+     return str + PAD;
   } if (PAD.length > (str.length - dot)) {
   return str + PAD.substring(str.length - dot);
   } else {
@@ -293,23 +293,23 @@ function gaia_onLoginSubmit() {
 
 function gaia_setFocus() {
   var f = null;
-  if (document.getElementById) { 
+  if (document.getElementById) {
     f = document.getElementById("gaia_loginform");
-  } else if (window.gaia_loginform) { 
+  } else if (window.gaia_loginform) {
     f = window.gaia_loginform;
-  } 
+  }
   if (f) {
-    if (f.Email.value == null || f.Email.value == "") { 
+    if (f.Email.value == null || f.Email.value == "") {
       f.Email.focus();
     } else {
       f.Passwd.focus();
-    } 
+    }
   }
 }
 --></script>
 <style type="text/css"><!--
   div.errormsg { color: red; font-size: smaller; font-family:arial,sans-serif; }
-  font.errormsg { color: red; font-size: smaller; font-family:arial,sans-serif; }  
+  font.errormsg { color: red; font-size: smaller; font-family:arial,sans-serif; }
 --></style>
 <style type="text/css"><!--
 .gaia.le.lbl { font-family: Arial, Helvetica, sans-serif; font-size: smaller; }
@@ -319,14 +319,14 @@ function gaia_setFocus() {
 .gaia.le.button { font-family: Arial, Helvetica, sans-serif; font-size: smaller; }
 .gaia.le.rem { font-family: Arial, Helvetica, sans-serif; font-size: smaller; }
 
-.gaia.captchahtml.desc { font-family: arial, sans-serif; font-size: smaller; } 
+.gaia.captchahtml.desc { font-family: arial, sans-serif; font-size: smaller; }
 .gaia.captchahtml.cmt { font-family: arial, sans-serif; font-size: smaller; font-style: italic; }
-  
+
 --></style>
 <form id="gaia_loginform"
-      
+
         action="https://www.google.com/accounts/ServiceLoginAuth?service=mail" method="post"
-      
+
       onsubmit=
                  "return(gaia_onLoginSubmit());"
                 >
@@ -364,20 +364,20 @@ function gaia_setFocus() {
 </tr>
   <script type="text/javascript"><!--
     function onPreCreateAccount() {
-    
+
       return true;
-    
+
     }
 
     function onPreLogin() {
-    
-      
+
+
       if (window["onlogin"] != null) {
         return onlogin();
       } else {
         return true;
       }
-    
+
     }
   --></script>
 <tr>
@@ -406,9 +406,9 @@ function gaia_setFocus() {
              value="kJ0RVwrWdhA" />
   <input type="text" name="Email"  id="Email"
   size="18" value=""
-  
+
     class='gaia le val'
-  
+
   />
   </td>
 </tr>
@@ -426,10 +426,10 @@ function gaia_setFocus() {
   <td>
   <input type="password"
    name="Passwd" id="Passwd"
-  size="18" 
-  
-    class="gaia le val" 
-  
+  size="18"
+
+    class="gaia le val"
+
   />
   </td>
 </tr>
@@ -443,9 +443,9 @@ function gaia_setFocus() {
   <td align="right" valign="top">
   <input type="checkbox" name="PersistentCookie" id="PersistentCookie"
     value="yes"
-  
-    
-  
+
+
+
   />
   <input type="hidden" name='rmShown' value="1" />
   </td>

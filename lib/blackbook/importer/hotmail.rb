@@ -16,7 +16,7 @@ class Blackbook::Importer::Hotmail < Blackbook::Importer::PageScraper
               "msn.com"           => "https://msnia.login.live.com/ppsecure/post.srf",
               "passport.com"      => "https://login.live.com/ppsecure/post.srf",
               "webtv.net"         => "https://login.live.com/ppsecure/post.srf" }
-              
+
   ##
   # Matches this importer to an user's name/address
 
@@ -25,7 +25,7 @@ class Blackbook::Importer::Hotmail < Blackbook::Importer::PageScraper
     domain = username_domain(options[:username].downcase)
     !domain.empty? && DOMAINS.keys.include?( domain ) ? true : false
   end
-   
+
   ##
   # Login procedure
   # 1. Go to login form
@@ -46,24 +46,24 @@ class Blackbook::Importer::Hotmail < Blackbook::Importer::PageScraper
     query_string = page.body.scan(/g_QS="([^"]+)/).first.first rescue nil
     form.action  = login_url + "?#{query_string.to_s}"
     page = agent.submit(form)
-    
+
     # Check for login success
     if page.body =~ /The e-mail address or password is incorrect/ ||
       page.body =~ /Sign in failed\./
-      raise( Blackbook::BadCredentialsError, 
+      raise( Blackbook::BadCredentialsError,
         "That username and password was not accepted. Please check them and try again." )
     end
-    
+
     page = agent.get( page.body.scan(/http\:\/\/[^"]+/).first )
   end
-  
+
   ##
   # prepare this importer
 
   def prepare
     login
   end
-  
+
   ##
   # Scrape contacts for Hotmail
   # Seems like a POST to directly fetch CSV contacts from options.aspx?subsection=26&n=
@@ -79,7 +79,7 @@ class Blackbook::Importer::Hotmail < Blackbook::Importer::PageScraper
     rows = page.search("//div[@class='ContactsPrintPane cPrintContact BorderTop']")
     rows.collect do |row|
       name = row.search("//div[@class='cDisplayName']").first.innerText.strip
-      
+
       vals = {}
       row.search("//table/tr").each do |pair|
         key = pair.search("/td[@class='TextAlignRight Label']").first.innerText.strip
@@ -91,7 +91,7 @@ class Blackbook::Importer::Hotmail < Blackbook::Importer::PageScraper
       vals
     end
   end
-  
+
   ##
   # lookup for the login service that should be used based on the user's
   # address
@@ -99,7 +99,7 @@ class Blackbook::Importer::Hotmail < Blackbook::Importer::PageScraper
   def login_url
     DOMAINS[username_domain] || DOMAINS['hotmail.com']
   end
-  
+
 
   ##
   # normalizes the host for the page that is currently being "viewed" by the
@@ -110,7 +110,7 @@ class Blackbook::Importer::Hotmail < Blackbook::Importer::PageScraper
     uri = agent.current_page.uri
     "#{uri.scheme}://#{uri.host}"
   end
-  
+
   ##
   # determines the domain for the user
 
@@ -119,6 +119,6 @@ class Blackbook::Importer::Hotmail < Blackbook::Importer::PageScraper
     return unless username
     username.to_s.split('@').last
   end
-  
+
   Blackbook.register(:hotmail, self)
 end

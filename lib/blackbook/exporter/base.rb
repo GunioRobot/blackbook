@@ -10,7 +10,7 @@ module Blackbook::Exporter
     def export( contacts )
       contacts
     end
-    
+
     Blackbook.register :basic, self
   end
 end

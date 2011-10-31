@@ -1,7 +1,7 @@
 == 1.0.5 / 2008-11-26
 
 * moved to github
-* added patch for gmail. emails were coming in with notes. 
+* added patch for gmail. emails were coming in with notes.
 * added german stuff to blackbook gem
 
 == 1.0.4 / 2008-02-27

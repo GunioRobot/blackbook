@@ -22,11 +22,11 @@ class TestBlackbookImporterCsv < Test::Unit::TestCase
 
   def test_to_hash
     cols = [:name, :email, :misc]
-    assert_equal({:name => 'joe', :email => 'joe@example.com', :misc => ''}, 
+    assert_equal({:name => 'joe', :email => 'joe@example.com', :misc => ''},
       @importer.to_hash(cols,['joe', 'joe@example.com']))
-    assert_equal({:name => 'joe', :email => 'joe@example.com', :misc => 'foo'}, 
+    assert_equal({:name => 'joe', :email => 'joe@example.com', :misc => 'foo'},
       @importer.to_hash(cols,['joe', 'joe@example.com', 'foo']))
-    assert_equal({:name => 'joe', :email => 'joe@example.com', :misc => 'foo,bar'}, 
+    assert_equal({:name => 'joe', :email => 'joe@example.com', :misc => 'foo,bar'},
       @importer.to_hash(cols,['joe', 'joe@example.com', 'foo', 'bar']))
   end
 

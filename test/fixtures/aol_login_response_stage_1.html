@@ -96,22 +96,22 @@ var MAX_WAIT_TIME = 15000;
 function goToWaitPage() {
   clearTimeout(t);
   tryingAIM = 2;
-  if( tryingWSC == 0){ 
+  if( tryingWSC == 0){
     snsRedir("http://my.screenname.aol.com/_cqr/login/aimPrelogin.psp?seamless=novl&sitedomain=sns.webmail.aol.com&lang=en&locale=us&authLev=2&siteState=ver%3a2%7cac%3aWS%7cat%3aSNS%7cld%3awebmail.aol.com%7cuv%3aAOL%7clc%3aen-us");
   } else {
-  } 
+  }
 }
 function goToLoginUrl() {
   clearTimeout(t);
-  tryingAIM = 0; 
-  if( tryingWSC == 0){ 
+  tryingAIM = 0;
+  if( tryingWSC == 0){
     snsRedir("https://my.screenname.aol.com/_cqr/login/login.psp?mcState=initialized&seamless=novl&sitedomain=sns.webmail.aol.com&lang=en&locale=us&authLev=2&siteState=ver%3a2%7cac%3aWS%7cat%3aSNS%7cld%3awebmail.aol.com%7cuv%3aAOL%7clc%3aen-us");
   } else {
-  } 
+  }
 }
 function tryAIM() {
   clearTimeout(wsc_t);
-  tryingWSC = 0; 
+  tryingWSC = 0;
   if(tryingAIM == 1){
     var timeout = '2000';
     t=setTimeout("goToLoginUrl()",timeout);
@@ -137,20 +137,20 @@ window.status=' ';
 </SCRIPT>
 <!-- WSC Login - DISABLED -->
 <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
-  tryingWSC = 0; 
+  tryingWSC = 0;
 tryAIM();
 </SCRIPT>
 <!-- AIM Login - DISABLED -->
 <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
 // goto Login Page
-  tryingAIM = 0; 
+  tryingAIM = 0;
 goToLoginUrl();
 </SCRIPT>
 
 
 
 
-    
+
 
 </body>
 </html>

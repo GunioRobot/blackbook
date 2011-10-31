@@ -11,7 +11,7 @@ class Blackbook::Importer::Aol < Blackbook::Importer::PageScraper
   def =~( options )
     options && options[:username] =~ /@(aol|aim)\.com$/i ? true : false
   end
-  
+
   ##
   # Login process:
   # - Get mail.aol.com which redirects to a page containing a javascript redirect
@@ -37,14 +37,14 @@ class Blackbook::Importer::Aol < Blackbook::Importer::PageScraper
     raise( Blackbook::BadCredentialsError, "You do not appear to be signed in." ) unless base_uri
     page = agent.get base_uri
   end
-  
+
   ##
   # must login to prepare
 
   def prepare
     login
   end
-  
+
   ##
   # The url to scrape contacts from has to be put together from the Auth cookie
   # and a known uri that hosts their contact service. An array of hashes with
@@ -54,7 +54,7 @@ class Blackbook::Importer::Aol < Blackbook::Importer::PageScraper
     unless auth_cookie = agent.cookies.find{|c| c.name =~ /^Auth/}
       raise( Blackbook::BadCredentialsError, "Must be authenticated to access contacts." )
     end
-    
+
     # jump through the hoops of formulating a request to get printable contacts
     uri = agent.current_page.uri.dup
     inputs = agent.current_page.search("//input")
@@ -78,6 +78,6 @@ class Blackbook::Importer::Aol < Blackbook::Importer::PageScraper
       }
     end
   end
-  
+
   Blackbook.register :aol, self
 end

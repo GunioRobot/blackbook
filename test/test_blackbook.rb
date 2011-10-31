@@ -19,7 +19,7 @@ class TestBlackbook < Test::Unit::TestCase
   def test_class_register
     Blackbook.register(:base, Blackbook::Exporter::Base)
     assert Blackbook.instance.exporters[:base].is_a?(Blackbook::Exporter::Base)
-    
+
     Blackbook.register(:base, Blackbook::Importer::Base)
     assert Blackbook.instance.importers[:base].is_a?(Blackbook::Importer::Base)
   end
@@ -43,7 +43,7 @@ class TestBlackbook < Test::Unit::TestCase
     base.stubs(:=~).returns(true)
     Blackbook.any_instance.stubs(:importers).returns({:basic => base})
     assert_equal base, Blackbook.instance.find_importer(:as => :basic)
-    
+
     base.stubs(:=~).returns(false)
     assert_nil Blackbook.instance.find_importer(:as => :basic)
   end
@@ -56,5 +56,5 @@ class TestBlackbook < Test::Unit::TestCase
     assert cards.detect{|card| card[:email] == "joeuser@example.com"}
     assert cards.detect{|card| card[:email] == "someguy@example.com"}
   end
-  
+
 end

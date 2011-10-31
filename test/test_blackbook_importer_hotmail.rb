@@ -8,7 +8,7 @@ class TestBlackbookImporterHotmail < Test::Unit::TestCase
 
   include TestHelper
 
-  
+
   def setup
     @importer = Blackbook::Importer::Hotmail.new
     @importer.options = {:username => 'user@hotmail.com', :password => 'password'}
